@@ -5,6 +5,7 @@ import store from './store'
 
 // 导入全局样式文件
 import '@/assets/css/globle.css'
+import '@/assets/css/reset.css'
 
 
 
