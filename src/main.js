@@ -3,6 +3,11 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 导入全局样式文件
+import '@/assets/css/globle.css'
+
+
+
 Vue.config.productionTip = false
 
 new Vue({
