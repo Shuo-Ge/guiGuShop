@@ -63,11 +63,14 @@ export default {
   methods: {
     // 搜索
     goSearch() {
-      this.$router.push({
-        name: "search",
-        params: { keyWord: this.keyWord },
-        query: { k: this.keyWord.toUpperCase() },
-      });
+      if (this.$route.query) {
+        let location = {
+          name: "search",
+          params: { keyWord: this.keyWord || undefined },
+        };
+        location.query = this.$route.query;
+        this.$router.push(location);
+      }
     },
     goHome() {
       this.$router.push("/home");

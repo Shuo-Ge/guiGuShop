@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h1>param:{{ $route.params.keyWord }}</h1>
-    <h1>query:{{ $route.query.k }}</h1>
+    <TypeNav></TypeNav>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  name: "search",
+};
 </script>
 
 <style lang="less">
