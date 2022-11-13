@@ -19,9 +19,15 @@ import '@/mock/mockSever.js'
 // 引入swiper
 import 'swiper/swiper-bundle.css'
 
+
+
 Vue.config.productionTip = false
 
 new Vue({
+  // 全局事件总线
+  beforeCreate() {
+    Vue.prototype.$bus = this
+  },
   router,
   store,
   render: h => h(App)
