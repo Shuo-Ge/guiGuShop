@@ -11,9 +11,12 @@ import '@/assets/css/reset.css'
 import TypeNav from '@/views/Home/TypeNav/TypeNav.vue'
 // 引入轮播图组件
 import Carousel from '@/components/Carousel/Carousel.vue'
+// 引入分页组件
+import Pagination from '@/components/Pagination/Pagination'
 // 第一个参数组件名字，第二个参数，那个组件
 Vue.component(TypeNav.name, TypeNav)
 Vue.component(Carousel.name, Carousel)
+Vue.component(Pagination.name, Pagination)
 // 引入mock
 import '@/mock/mockSever.js'
 // 引入swiper
