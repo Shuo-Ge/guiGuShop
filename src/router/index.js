@@ -4,6 +4,7 @@ const Home = () => import('@/views/Home/Home')
 const Login = () => import('@/views/Login/Login')
 const Register = () => import('@/views/Register/Register')
 const Search = () => import('@/views/Search/Search')
+const Detail = () => import('@/views/Detail')
 
 // 先把VueRouter复制保存一份
 let originPush = VueRouter.prototype.push
@@ -36,6 +37,11 @@ const routes = [
     meta: { show: true }
   },
   {
+    path: '/detail/:skuid?',
+    component: Detail,
+    meta: { show: true }
+  },
+  {
     path: '/login',
     component: Login,
     meta: { show: false }
@@ -55,7 +61,10 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
+  scrollBehavior(to, from, savedPosition) {
+    return { y: 0 }
+  }
 })
 
 export default router
