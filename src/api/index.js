@@ -10,6 +10,8 @@ export const getFloorApi = () => mockRequest.get('/floor')
 export const getSearchApi = (params) => request({ url: '/list', method: 'post', data: params })
 // 获取产品详情信息
 export const getGoodsInfo = (skuId) => request.get(`/item/${skuId}`)
+// 将产品添加到购物车中
+export const addGoodsCurt = (skuId, skuNum) => request.post(`/cart/addToCart/${skuId}/${skuNum}`)
 
 
 

@@ -95,12 +95,18 @@
             </div>
             <div class="cartWrap">
               <div class="controls">
-                <input autocomplete="off" class="itxt" />
-                <a href="javascript:" class="plus">+</a>
-                <a href="javascript:" class="mins">-</a>
+                <input
+                  autocomplete="off"
+                  type="number"
+                  class="itxt"
+                  v-model="skuNum"
+                  @change="changeSkuNum"
+                />
+                <a class="plus" @click="skuNum++">+</a>
+                <a class="mins" @click="skuNum > 1 ? skuNum-- : 1">-</a>
               </div>
               <div class="add">
-                <a href="javascript:">加入购物车</a>
+                <a @click="addCurt">加入购物车</a>
               </div>
             </div>
           </div>
@@ -344,7 +350,12 @@ import Zoom from "./Zoom/Zoom";
 import { mapGetters } from "vuex";
 export default {
   name: "Detail",
-
+  data() {
+    return {
+      // 购买产品的个数
+      skuNum: 1,
+    };
+  },
   components: {
     ImageList,
     Zoom,
@@ -364,6 +375,25 @@ export default {
         item.isChecked = "0";
       });
       saleAttrValues.isChecked = 1;
+    },
+    changeSkuNum(e) {
+      let value = e.target.value * 1;
+      if (isNaN(value) || value < 1) {
+        this.skuNum = 1;
+      } else {
+        this.skuNum = parseInt(value);
+      }
+    },
+    async addCurt(skuNum) {
+     try {
+        await this.$store.dispatch("getGoodsCurt", {
+        skuId: this.$route.params.skuid,
+        SkuNum: this.skuNum,
+      });
+     } catch (error) {
+      alert(error)
+     }
+      console.log(result);
     },
   },
 };

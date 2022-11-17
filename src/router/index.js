@@ -5,6 +5,7 @@ const Login = () => import('@/views/Login/Login')
 const Register = () => import('@/views/Register/Register')
 const Search = () => import('@/views/Search/Search')
 const Detail = () => import('@/views/Detail')
+const AddCartSuccess = () => import('@/views/AddCartSuccess')
 
 // 先把VueRouter复制保存一份
 let originPush = VueRouter.prototype.push
@@ -39,6 +40,11 @@ const routes = [
   {
     path: '/detail/:skuid?',
     component: Detail,
+    meta: { show: true }
+  },
+  {
+    path: '/addcartsuccess',
+    component: AddCartSuccess,
     meta: { show: true }
   },
   {
